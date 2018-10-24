@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "828708864479",
+    "firebase_url": "https://waterloocarpool-5641a.firebaseio.com",
+    "project_id": "waterloocarpool-5641a",
+    "storage_bucket": "waterloocarpool-5641a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828708864479:android:895c035edac41b89",
+        "android_client_info": {
+          "package_name": "com.example.jiangzizheng.waterloocarpool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828708864479-5o9in9hc2maotclfti7tidrtevbb2cic.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jiangzizheng.waterloocarpool",
+            "certificate_hash": "c59ed3de4ddc9ef6eb7b7832437e74f4490de992"
+          }
+        },
+        {
+          "client_id": "828708864479-nano5pg8po8jmvnlc5dfsr0hmrpv60qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClcKj64T4sSdUaOIZ5xb0w_SH0iFxPiOQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828708864479-nano5pg8po8jmvnlc5dfsr0hmrpv60qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
