@@ -11,4 +11,10 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+
+    // added by Zizheng
+    <string name="prompt_require_google_play">
+        Sorry, this application is based on Firebase, thus it requires Google Play service to work properly.
+    </string>
+    <string name="prompt_login_loading">Login interface invoking, one more second…</string>
 </resources>
