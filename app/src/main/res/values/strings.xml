@@ -17,4 +17,8 @@
         Sorry, this application is based on Firebase, thus it requires Google Play service to work properly.
     </string>
     <string name="prompt_login_loading">Login interface invoking, one more second…</string>
+    <string name="title_activity_email_login">Sign in</string>
+
+    <string name="action_email_sign_in">Sign in with email</string>
+    <string name="action_google_sign_in">Sign in with Google</string>
 </resources>
