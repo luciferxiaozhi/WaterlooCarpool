@@ -33,6 +33,10 @@
                 android:name=".frontend.activities.LoginActivity"
                 android:label="@string/title_activity_login">
         </activity>
+        <activity
+                android:name=".frontend.activities.MainActivity"
+                android:label="@string/title_activity_main">
+        </activity>
     </application>
 
 </manifest>
