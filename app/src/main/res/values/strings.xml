@@ -27,9 +27,10 @@
     <string name="title_driver">Driver</string>
     <string name="title_passenger">Passenger</string>
 
-    <string name="prompt_departure_city">Departure City:</string>
+    <string name="prompt_departure_city">Departure City</string>
 
     <string-array name="departure_city">
+        <item>Please Select the Departure City</item>
         <item>Waterloo</item>
         <item>Pearson Airport</item>
         <item>Toronto</item>
@@ -39,6 +40,29 @@
         <item>London</item>
     </string-array>
 
-    <string name="prompt_specific_departure_city">Specific Departure City:</string>
+    <string-array name="arrival_city">
+        <item>Please Select the Arrival City</item>
+        <item>Waterloo</item>
+        <item>Pearson Airport</item>
+        <item>Toronto</item>
+        <item>Mississauga</item>
+        <item>Markham</item>
+        <item>Hamilton</item>
+        <item>London</item>
+    </string-array>
 
+    <!-- dirver fragment -->
+    <string name="prompt_specific_departure_address">Specific Departure Address</string>
+    <string name="prompt_specific_arrival_address">Specific Arrival Address</string>
+    <string name="prompt_phone_number">Phone Number</string>
+    <string name="prompt_departure_date">Departure Date</string>
+    <string name="prompt_vacancies">Vacancies</string>
+    <string name="prompt_price">Price per Person</string>
+    <string name="action_confirm">Confirm</string>
+
+    <!-- passenger fragment -->
+    <string name="prompt_number_of_people"># of People</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

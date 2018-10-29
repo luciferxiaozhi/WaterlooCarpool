@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".frontend.fragments.HomeFragment"
+              android:gravity="center_vertical|center_horizontal"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin">
+
+    <Spinner
+            android:id="@+id/departure_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/departure_city"/>
+
+    <EditText
+            android:id="@+id/departure_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="@string/prompt_specific_departure_address"
+            android:importantForAutofill="no"/>
+
+    <Spinner
+            android:id="@+id/arrival_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/arrival_city"/>
+
+
+    <EditText
+            android:id="@+id/arrival_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="@string/prompt_specific_arrival_address"
+            android:importantForAutofill="no"/>
+
+    <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:hint="@string/prompt_departure_date"
+            android:importantForAutofill="no"/>
+
+    <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="@string/prompt_phone_number"
+            android:importantForAutofill="no"/>
+
+    <EditText
+            android:id="@+id/vacancies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="@string/prompt_vacancies"
+            android:importantForAutofill="no"/>
+
+    <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="@string/prompt_price"
+            android:importantForAutofill="no"/>
+
+    <Button
+            android:id="@+id/confirm_pickup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/action_confirm"
+            android:textStyle="bold"/>
+
+</LinearLayout>
