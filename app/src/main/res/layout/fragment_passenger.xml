@@ -14,13 +14,13 @@
     <Spinner
             android:id="@+id/departure_city"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42sp"
             android:entries="@array/departure_city"/>
 
     <Spinner
             android:id="@+id/arrival_city"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42sp"
             android:entries="@array/arrival_city"/>
 
 
