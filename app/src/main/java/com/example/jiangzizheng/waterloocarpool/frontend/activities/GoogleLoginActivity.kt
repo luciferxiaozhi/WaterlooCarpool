@@ -48,6 +48,7 @@ class GoogleLoginActivity : AppCompatActivity() {
                 val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
                 Auth.instance.signInWithCredential(credential)
                     .addOnSuccessListener {
+                        startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     }
                     .addOnFailureListener {
