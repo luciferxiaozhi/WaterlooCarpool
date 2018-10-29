@@ -20,7 +20,7 @@ object Auth {
 
     private fun retrieveGoogleOAuthToken(activity: Activity) {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("828708864479-5o9in9hc2maotclfti7tidrtevbb2cic.apps.googleusercontent.com")
+            .requestIdToken("828708864479-nano5pg8po8jmvnlc5dfsr0hmrpv60qt.apps.googleusercontent.com")
             .requestEmail()
             .build()
         val client = GoogleSignIn.getClient(activity, gso)
