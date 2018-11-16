@@ -10,7 +10,7 @@ data class Trip (
     var aCity: String = "",
     var aAddress: String = "",
 
-    var ddate: Timestamp = Timestamp(Date(0)),
+    var dDate: Timestamp = Timestamp(Date(0)),
     var phoneNumber: String = "",
     var vacancies: Int = 0,
     var price: Double = 0.0
