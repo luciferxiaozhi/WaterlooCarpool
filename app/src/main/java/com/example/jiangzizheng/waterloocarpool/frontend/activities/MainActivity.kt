@@ -3,17 +3,11 @@ package com.example.jiangzizheng.waterloocarpool.frontend.activities
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
-import android.view.MenuItem
-import android.widget.Toast
 import com.example.jiangzizheng.waterloocarpool.R
-import com.example.jiangzizheng.waterloocarpool.R.id.design_navigation_view
-import com.example.jiangzizheng.waterloocarpool.R.id.navigation_passenger
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.PassengerFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {

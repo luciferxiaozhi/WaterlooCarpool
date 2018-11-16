@@ -55,7 +55,7 @@
     <string name="prompt_specific_departure_address">Specific Departure Address</string>
     <string name="prompt_specific_arrival_address">Specific Arrival Address</string>
     <string name="prompt_phone_number">Phone Number</string>
-    <string name="prompt_departure_date">Departure Date (mm/dd)</string>
+    <string name="prompt_departure_date">Departure Date (MM/DD hh:mm)</string>
     <string name="prompt_vacancies">Vacancies</string>
     <string name="prompt_price">Price per Person</string>
     <string name="action_confirm">Confirm</string>
