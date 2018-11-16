@@ -22,7 +22,7 @@
     <string name="action_email_sign_in">Sign in with email</string>
     <string name="action_google_sign_in">Sign in with Google</string>
 
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Main</string>
 
     <string name="title_driver">Driver</string>
     <string name="title_passenger">Passenger</string>
