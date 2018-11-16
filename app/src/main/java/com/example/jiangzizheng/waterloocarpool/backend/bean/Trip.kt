@@ -2,7 +2,7 @@ package com.example.jiangzizheng.waterloocarpool.backend.bean
 
 import java.sql.Timestamp
 
-data class Drivers(
+class Trip (
     var dCity: String = "",
     var dAddress: String = "",
 
