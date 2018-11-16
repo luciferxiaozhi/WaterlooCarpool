@@ -6,9 +6,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jiangzizheng.waterloocarpool.R
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
+import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
+import com.example.jiangzizheng.waterloocarpool.backend.bean.User
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.PassengerFragment
+import com.google.firebase.Timestamp
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.fragment_driver.*
+import kotlinx.android.synthetic.main.fragment_passenger.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -38,6 +45,31 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        confirm_driver.setOnClickListener {
+            val user = User()
+            val trip = Trip()
+
+            trip.dCity = driver_departure_city.selectedItem.toString()
+            trip.dAddress = departure_address.text.toString()
+            trip.aCity = driver_arrival_city.selectedItem.toString()
+            trip.aAddress = arrival_address.text.toString()
+
+            trip.ddate = driver_date.text.toString().let { date ->
+                Timestamp(SimpleDateFormat("MM/DD hh:mm", Locale.CANADA).parse(date))
+            }
+            trip.phoneNumber = phone.text.toString()
+            trip.vacancies = vacancies.text.toString().toInt()
+            trip.price = price.text.toString().toDouble()
+
+
+        }
+
+        confirm_passenger.setOnClickListener {
+
+        }
+
+
     }
 
     override fun onStart() {

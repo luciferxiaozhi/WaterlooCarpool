@@ -12,7 +12,7 @@
               android:paddingTop="@dimen/activity_vertical_margin">
 
     <Spinner
-            android:id="@+id/departure_city"
+            android:id="@+id/driver_departure_city"
             android:layout_width="match_parent"
             android:layout_height="42sp"
             android:entries="@array/departure_city"/>
@@ -26,7 +26,7 @@
             android:importantForAutofill="no"/>
 
     <Spinner
-            android:id="@+id/arrival_city"
+            android:id="@+id/driver_arrival_city"
             android:layout_width="match_parent"
             android:layout_height="42sp"
             android:entries="@array/arrival_city"/>
@@ -41,7 +41,7 @@
             android:importantForAutofill="no"/>
 
     <EditText
-            android:id="@+id/date"
+            android:id="@+id/driver_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -73,7 +73,7 @@
             android:importantForAutofill="no"/>
 
     <Button
-            android:id="@+id/confirm_pickup"
+            android:id="@+id/confirm_driver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
