@@ -1,6 +1,7 @@
 package com.example.jiangzizheng.waterloocarpool.backend.bean
 
-import java.sql.Timestamp
+import com.google.firebase.Timestamp
+import java.util.*
 
 data class Trip (
     var dCity: String = "",
@@ -9,7 +10,7 @@ data class Trip (
     var aCity: String = "",
     var aAddress: String = "",
 
-    var ddate: Timestamp = Timestamp(0),
+    var ddate: Timestamp = Timestamp(Date(0)),
     var phoneNumber: String = "",
     var vacancies: Int = 0,
     var price: Double = 0.0
