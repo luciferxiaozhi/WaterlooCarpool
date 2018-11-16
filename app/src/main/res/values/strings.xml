@@ -63,4 +63,10 @@
     <!-- passenger fragment -->
     <string name="prompt_number_of_people"># of People</string>
 
+    <!-- passenger fragment -->
+    <string name="nav_header_avatar">User Avatar</string>
+    <string name="nav_header_nickname">Unknown</string>
+    <string name="nav_header_email">unknown@somewhere.com</string>
+    <string name="nav_title_exit">Exit</string>
+
 </resources>
