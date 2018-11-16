@@ -65,7 +65,8 @@ object Store {
     object TripCollection {
         private fun takeCollection(userId: String): CollectionReference? {
             val user = Auth.instance.currentUser ?: return null
-            return instance.collection("users")
+            // separate trips and users apart to make it easier to operate
+            return instance.collection("trips/")
         }
 
         private fun takeDocument(userId: String, tripId: String): DocumentReference? {
