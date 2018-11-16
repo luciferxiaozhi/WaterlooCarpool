@@ -2,9 +2,9 @@ package com.example.jiangzizheng.waterloocarpool.frontend.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.jiangzizheng.waterloocarpool.R
@@ -14,6 +14,7 @@ import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.PassengerFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
