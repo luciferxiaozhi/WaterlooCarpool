@@ -55,8 +55,8 @@ class MainActivity : AppCompatActivity() {
             trip.aCity = driver_arrival_city.selectedItem.toString()
             trip.aAddress = arrival_address.text.toString()
 
-            trip.ddate = driver_date.text.toString().let { date ->
-                Timestamp(SimpleDateFormat("MM/DD hh:mm", Locale.CANADA).parse(date))
+            trip.dDate = driver_date.text.toString().let { date ->
+                Timestamp(SimpleDateFormat("MM/dd hh:mm", Locale.CANADA).parse(date))
             }
             trip.phoneNumber = phone.text.toString()
             trip.vacancies = vacancies.text.toString().toInt()
@@ -66,6 +66,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         confirm_passenger.setOnClickListener {
+            val trip = Trip()
+            trip.dCity = departure_city.selectedItem.toString()
+            trip.aCity = arrival_city.selectedItem.toString()
+            trip.dDate = date.text.toString().let { date ->
+                Timestamp(SimpleDateFormat("MM/dd", Locale.CANADA).parse(date))
+            }
+            trip.vacancies = number_of_people.text.toString().toInt()
 
         }
 

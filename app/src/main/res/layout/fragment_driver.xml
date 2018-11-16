@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="@string/prompt_departure_date"
+            android:hint="@string/prompt_driver_departure_date"
             android:importantForAutofill="no"/>
 
     <EditText
