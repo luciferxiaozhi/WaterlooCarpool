@@ -3,6 +3,7 @@ package com.example.jiangzizheng.waterloocarpool.backend.api
 import android.app.Activity
 import com.example.jiangzizheng.waterloocarpool.global.Constants.RC_GOOGLE_SIGN_IN
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
@@ -18,12 +19,16 @@ object Auth {
         Email,
     }
 
+    private fun getGoogleSignInClient(activity: Activity) =
+        GoogleSignIn.getClient(activity,
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("828708864479-nano5pg8po8jmvnlc5dfsr0hmrpv60qt.apps.googleusercontent.com")
+                .requestEmail()
+                .build()
+        )
+
     private fun retrieveGoogleOAuthToken(activity: Activity) {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("828708864479-nano5pg8po8jmvnlc5dfsr0hmrpv60qt.apps.googleusercontent.com")
-            .requestEmail()
-            .build()
-        val client = GoogleSignIn.getClient(activity, gso)
+        val client = getGoogleSignInClient(activity)
         activity.startActivityForResult(client.signInIntent, RC_GOOGLE_SIGN_IN)
     }
 
@@ -38,7 +43,14 @@ object Auth {
             OAuthType.Email -> {
 
             }
-
         }
+    }
+
+    private fun disposeGoogleOAuthToken(activity: Activity) {
+        getGoogleSignInClient(activity).signOut()
+    }
+
+    fun disposeOAuthToken(activity: Activity) {
+        disposeGoogleOAuthToken(activity)
     }
 }

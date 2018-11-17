@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private val mOnDrawerItemSelectedListener = NavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.nav_exit -> mainHandler.postDelayed({
+                Auth.disposeOAuthToken(this)
                 Auth.instance.signOut()
                 startActivity(Intent(this, LoginActivity::class.java))
             }, 300L)
