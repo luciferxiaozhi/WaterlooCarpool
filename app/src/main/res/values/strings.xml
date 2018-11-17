@@ -71,4 +71,9 @@
     <string name="nav_header_email">unknown@somewhere.com</string>
     <string name="nav_title_exit">Exit</string>
 
+    <!-- register activity -->
+    <string name="prompt_first_name">First Name</string>
+    <string name="prompt_last_name">Last Name</string>
+    <string name="title_activity_register">Register</string>
+
 </resources>
