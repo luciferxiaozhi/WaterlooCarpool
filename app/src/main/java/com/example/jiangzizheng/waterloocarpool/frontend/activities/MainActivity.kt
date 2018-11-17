@@ -46,37 +46,6 @@ class MainActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        confirm_driver.setOnClickListener {
-            val user = User()
-            val trip = Trip()
-
-            trip.dCity = driver_departure_city.selectedItem.toString()
-            trip.dAddress = departure_address.text.toString()
-            trip.aCity = driver_arrival_city.selectedItem.toString()
-            trip.aAddress = arrival_address.text.toString()
-
-            trip.dDate = driver_date.text.toString().let { date ->
-                Timestamp(SimpleDateFormat("MM/dd hh:mm", Locale.CANADA).parse(date))
-            }
-            trip.phoneNumber = phone.text.toString()
-            trip.vacancies = vacancies.text.toString().toInt()
-            trip.price = price.text.toString().toDouble()
-
-
-        }
-
-        confirm_passenger.setOnClickListener {
-            val trip = Trip()
-            trip.dCity = departure_city.selectedItem.toString()
-            trip.aCity = arrival_city.selectedItem.toString()
-            trip.dDate = date.text.toString().let { date ->
-                Timestamp(SimpleDateFormat("MM/dd", Locale.CANADA).parse(date))
-            }
-            trip.vacancies = number_of_people.text.toString().toInt()
-
-        }
-
-
     }
 
     override fun onStart() {

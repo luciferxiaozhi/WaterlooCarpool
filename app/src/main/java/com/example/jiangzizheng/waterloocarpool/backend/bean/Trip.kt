@@ -13,5 +13,7 @@ data class Trip (
     var dDate: Timestamp = Timestamp(Date(0)),
     var phoneNumber: String = "",
     var vacancies: Int = 0,
-    var price: Double = 0.0
+    var price: Double = 0.0,
+
+    var driver: String = ""
 )

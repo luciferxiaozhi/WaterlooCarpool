@@ -5,7 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.jiangzizheng.waterloocarpool.R
+import com.example.jiangzizheng.waterloocarpool.backend.api.Store
+import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
+import com.google.firebase.Timestamp
+import kotlinx.android.synthetic.main.fragment_passenger.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -25,6 +32,25 @@ class PassengerFragment : androidx.fragment.app.Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_passenger, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        confirm_passenger.setOnClickListener {
+            val trip = Trip()
+            trip.dCity = departure_city.selectedItem.toString()
+            trip.aCity = arrival_city.selectedItem.toString()
+            trip.dDate = date.text.toString().let { date ->
+                Timestamp(SimpleDateFormat("MM/dd", Locale.CANADA).parse(date))
+            }
+            trip.vacancies = number_of_people.text.toString().toInt()
+
+            Store.TripCollection.search(trip.dCity, trip.aCity, trip.dDate, trip.vacancies)
+                ?.addOnFailureListener {
+                    Toast.makeText(activity, "Trip not found!", Toast.LENGTH_LONG).show()
+                }
+        }
+
     }
 
     companion object {

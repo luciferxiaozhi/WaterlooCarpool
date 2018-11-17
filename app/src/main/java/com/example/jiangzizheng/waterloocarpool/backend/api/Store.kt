@@ -4,6 +4,7 @@ import com.example.jiangzizheng.waterloocarpool.backend.api.TaskDecorators.withF
 import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
 import com.example.jiangzizheng.waterloocarpool.backend.bean.User
 import com.google.android.gms.tasks.Task
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.*
 
 object Store {
@@ -34,12 +35,12 @@ object Store {
 
         fun fetchAll(): Task<LinkedHashMap<String, User>>? {
             return takeCollection()
-                    ?.get()
-                    ?.continueWith { task ->
-                        LinkedHashMap(task.result?.associate { user ->
-                            user.id to user.toObject(User::class.java)
-                        })
-                    }
+                ?.get()
+                ?.continueWith { task ->
+                    LinkedHashMap(task.result?.associate { user ->
+                        user.id to user.toObject(User::class.java)
+                    })
+                }
                 ?.withFailureLog("FireStore")
         }
 
@@ -63,25 +64,24 @@ object Store {
     }
 
     object TripCollection {
-        private fun takeCollection(userId: String): CollectionReference? {
-            val user = Auth.instance.currentUser ?: return null
+        private fun takeCollection(): CollectionReference? {
             // separate trips and users apart to make it easier to operate
             return instance.collection("trips/")
         }
 
-        private fun takeDocument(userId: String, tripId: String): DocumentReference? {
-            return takeCollection(userId)?.document(tripId)
+        private fun takeDocument(tripId: String): DocumentReference? {
+            return takeCollection()?.document(tripId)
         }
 
-        fun fetch(userId: String, tripId: String): Task<Trip>? {
-            return takeDocument(userId, tripId)
-                    ?.get()
-                    ?.continueWith {it.result?.toObject(Trip::class.java)!! }
+        fun fetch(tripId: String): Task<Trip>? {
+            return takeDocument(tripId)
+                ?.get()
+                ?.continueWith { it.result?.toObject(Trip::class.java)!! }
                 ?.withFailureLog("FireStore")
         }
 
-        fun fetchAll(userId: String): Task<LinkedHashMap<String, Trip>>? {
-            return takeCollection(userId)
+        fun fetchAll(): Task<LinkedHashMap<String, Trip>>? {
+            return takeCollection()
                 ?.get()
                 ?.continueWith { task ->
                     LinkedHashMap(task.result?.associate { trip ->
@@ -91,20 +91,37 @@ object Store {
                 ?.withFailureLog("FireStore")
         }
 
-        fun add(userId: String, trip: Trip): Task<DocumentReference>? {
-            return takeCollection(userId)
+        fun search(dCity: String, aCity: String, dDate: Timestamp, vacancies: Int): Task<LinkedHashMap<String, Trip>>? {
+            return takeCollection()
+                ?.whereEqualTo("dCity", dCity)
+                ?.whereEqualTo("aCity", aCity)
+                ?.whereGreaterThanOrEqualTo("vacancies", vacancies)
+                ?.get()
+                ?.continueWith { task ->
+                    val start = dDate.seconds
+                    val end = start + 86400
+                    LinkedHashMap(task.result?.associate { trip ->
+                        trip.id to trip.toObject(Trip::class.java)
+                    }?.filter {
+                        it.value.dDate.seconds in start..end
+                    })
+                }?.withFailureLog("FireStore")
+        }
+
+        fun add(trip: Trip): Task<DocumentReference>? {
+            return takeCollection()
                 ?.add(trip)
                 ?.withFailureLog("FireStore")
         }
 
-        fun update(userId: String, tripId: String, data: Map<String, Any>): Task<Void>? {
-            return takeDocument(userId, tripId)
+        fun update(tripId: String, data: Map<String, Any>): Task<Void>? {
+            return takeDocument(tripId)
                 ?.set(data, SetOptions.merge())
                 ?.withFailureLog("FireStore")
         }
 
-        fun delete(userId: String, tripId: String): Task<Void>? {
-            return takeDocument(userId, tripId)
+        fun delete(tripId: String): Task<Void>? {
+            return takeDocument(tripId)
                 ?.delete()
                 ?.withFailureLog("FireStore")
         }
