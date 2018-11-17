@@ -93,8 +93,8 @@ object Store {
 
         fun search(dCity: String, aCity: String, dDate: Timestamp, vacancies: Int): Task<LinkedHashMap<String, Trip>>? {
             return takeCollection()
-                ?.whereEqualTo("dCity", dCity)
-                ?.whereEqualTo("aCity", aCity)
+                ?.whereEqualTo("departureCity", dCity)
+                ?.whereEqualTo("arrivalCity", aCity)
                 ?.whereGreaterThanOrEqualTo("vacancies", vacancies)
                 ?.get()
                 ?.continueWith { task ->
