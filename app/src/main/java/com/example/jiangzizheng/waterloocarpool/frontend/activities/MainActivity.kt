@@ -6,16 +6,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jiangzizheng.waterloocarpool.R
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
-import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
-import com.example.jiangzizheng.waterloocarpool.backend.bean.User
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.PassengerFragment
-import com.google.firebase.Timestamp
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.fragment_driver.*
-import kotlinx.android.synthetic.main.fragment_passenger.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->

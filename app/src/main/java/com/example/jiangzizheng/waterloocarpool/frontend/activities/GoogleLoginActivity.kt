@@ -8,11 +8,13 @@ import android.view.View
 import android.widget.Toast
 import com.example.jiangzizheng.waterloocarpool.R
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
+import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.global.Constants.RC_GOOGLE_SIGN_IN
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_google_login.*
 
@@ -48,8 +50,21 @@ class GoogleLoginActivity : AppCompatActivity() {
                 val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
                 Auth.instance.signInWithCredential(credential)
                     .addOnSuccessListener {
-                        startActivity(Intent(this, MainActivity::class.java))
-                        finish()
+                        val user = Auth.instance.currentUser
+                        if (user == null) {
+                            Toast.makeText(this, "Login failed!", Toast.LENGTH_LONG).show()
+                            finish()
+                            return@addOnSuccessListener
+                        }
+                        Store.UserCollection.fetch(user.uid)
+                            ?.addOnSuccessListener {
+                                startActivity(Intent(this, MainActivity::class.java))
+                                finish()
+                            }
+                            ?.addOnFailureListener {
+                                startActivity(Intent(this, RegisterActivity::class.java))
+                                finish()
+                            }
                     }
                     .addOnFailureListener {
                         report(it)
