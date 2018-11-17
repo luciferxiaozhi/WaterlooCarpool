@@ -1,6 +1,5 @@
 package com.example.jiangzizheng.waterloocarpool.frontend.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jiangzizheng.waterloocarpool.R
+import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
-import com.example.jiangzizheng.waterloocarpool.backend.bean.User
 import com.google.firebase.Timestamp
 import kotlinx.android.synthetic.main.fragment_driver.*
 import java.text.SimpleDateFormat
@@ -38,14 +37,14 @@ class DriverFragment : androidx.fragment.app.Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         confirm_driver.setOnClickListener {
-            val user = User()
+            val user = Auth.instance.currentUser ?: throw Error()
 
             val trip = Trip()
 
-            trip.dCity = driver_departure_city.selectedItem.toString()
-            trip.dAddress = departure_address.text.toString()
-            trip.aCity = driver_arrival_city.selectedItem.toString()
-            trip.aAddress = arrival_address.text.toString()
+            trip.departureCity = driver_departure_city.selectedItem.toString()
+            trip.departureAddress = departure_address.text.toString()
+            trip.arrivalCity = driver_arrival_city.selectedItem.toString()
+            trip.arrivalAddress = arrival_address.text.toString()
 
             trip.dDate = driver_date.text.toString().let { date ->
                 Timestamp(SimpleDateFormat("MM/dd hh:mm", Locale.CANADA).parse(date))
@@ -54,8 +53,7 @@ class DriverFragment : androidx.fragment.app.Fragment() {
             trip.vacancies = vacancies.text.toString().toInt()
             trip.price = price.text.toString().toDouble()
 
-            // test
-            trip.driver = "k7DO4c9cJGGq7L2bb4JF"
+            trip.driver = user.uid
 
             Store.TripCollection.add(trip)
                 ?.addOnSuccessListener {

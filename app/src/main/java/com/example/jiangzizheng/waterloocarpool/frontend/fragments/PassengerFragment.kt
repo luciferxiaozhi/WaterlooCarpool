@@ -38,14 +38,17 @@ class PassengerFragment : androidx.fragment.app.Fragment() {
         super.onViewCreated(view, savedInstanceState)
         confirm_passenger.setOnClickListener {
             val trip = Trip()
-            trip.dCity = departure_city.selectedItem.toString()
-            trip.aCity = arrival_city.selectedItem.toString()
+            trip.departureCity = departure_city.selectedItem.toString()
+            trip.arrivalCity = arrival_city.selectedItem.toString()
             trip.dDate = date.text.toString().let { date ->
                 Timestamp(SimpleDateFormat("MM/dd", Locale.CANADA).parse(date))
             }
             trip.vacancies = number_of_people.text.toString().toInt()
 
-            Store.TripCollection.search(trip.dCity, trip.aCity, trip.dDate, trip.vacancies)
+            Store.TripCollection.search(trip.departureCity, trip.arrivalCity, trip.dDate, trip.vacancies)
+                ?.addOnSuccessListener {
+
+                }
                 ?.addOnFailureListener {
                     Toast.makeText(activity, "Trip not found!", Toast.LENGTH_LONG).show()
                 }

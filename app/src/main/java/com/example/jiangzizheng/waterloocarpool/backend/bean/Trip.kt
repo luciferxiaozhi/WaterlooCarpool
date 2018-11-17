@@ -4,11 +4,11 @@ import com.google.firebase.Timestamp
 import java.util.*
 
 data class Trip (
-    var dCity: String = "",
-    var dAddress: String = "",
+    var departureCity: String = "",
+    var departureAddress: String = "",
 
-    var aCity: String = "",
-    var aAddress: String = "",
+    var arrivalCity: String = "",
+    var arrivalAddress: String = "",
 
     var dDate: Timestamp = Timestamp(Date(0)),
     var phoneNumber: String = "",
