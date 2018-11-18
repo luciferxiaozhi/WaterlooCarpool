@@ -23,6 +23,7 @@
     <string name="action_google_sign_in">Sign in with Google</string>
 
     <string name="title_activity_main">Main</string>
+    <string name="title_account_information">Account Information</string>
 
     <string name="title_driver">Driver</string>
     <string name="title_passenger">Passenger</string>
