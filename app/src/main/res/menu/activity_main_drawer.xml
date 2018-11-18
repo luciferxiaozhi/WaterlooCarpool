@@ -5,16 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-<<<<<<< HEAD
-=======
                 android:id="@+id/nav_accountInfo"
                 android:icon="@drawable/ic_account_circle"
-                android:title="@string/nav_title_accountInfo" />
+                android:title="@string/nav_title_account_info" />
     </group>
 
     <group android:checkableBehavior="single">
         <item
->>>>>>> 117b8ff53d10ba61e7e5982d1e27f3f2117a30ad
                 android:id="@+id/nav_exit"
                 android:icon="@drawable/ic_exit"
                 android:title="@string/nav_title_exit" />
