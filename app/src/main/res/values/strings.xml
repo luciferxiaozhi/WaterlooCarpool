@@ -70,6 +70,10 @@
     <string name="nav_header_nickname">Unknown</string>
     <string name="nav_header_email">unknown@somewhere.com</string>
     <string name="nav_title_exit">Exit</string>
+<<<<<<< HEAD
+=======
+    <string name="nav_title_accountInfo">Account</string>
+>>>>>>> 117b8ff53d10ba61e7e5982d1e27f3f2117a30ad
 
     <!-- register activity -->
     <string name="prompt_first_name">First Name</string>
