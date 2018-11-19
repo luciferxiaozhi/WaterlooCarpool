@@ -41,9 +41,9 @@
         </activity>
         <activity
                 android:name=".frontend.activities.AccountInfoActivity"
-                android:label="Account Information"
-                android:parentActivityName=".frontend.activities.MainActivity"
-        >
+                android:label="@string/title_account_information">
+        </activity>
+        <activity android:name=".frontend.activities.TripDetailsActivity">
         </activity>
     </application>
 

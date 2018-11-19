@@ -29,13 +29,7 @@ class AccountInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_info)
 
-        toolbar = findViewById(R.id.default_toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         readDataAndSetText()
-
 
     }
 

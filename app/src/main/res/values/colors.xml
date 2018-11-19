@@ -6,4 +6,6 @@
 
     <color name="colorInputLight">#d0e2ff</color>
     <color name="colorInputDark">#000000</color>
+
+    <color name="colorTripLinePressed">#d2dce9ff</color>
 </resources>

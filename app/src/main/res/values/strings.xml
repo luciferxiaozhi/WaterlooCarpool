@@ -23,6 +23,7 @@
     <string name="action_google_sign_in">Sign in with Google</string>
 
     <string name="title_activity_main">Main</string>
+    <string name="title_account_information">Account Information</string>
 
     <string name="title_driver">Driver</string>
     <string name="title_passenger">Passenger</string>
@@ -82,7 +83,7 @@
 
     // Added by Zhilun Chang
     <!-- passenger fragment  -->
-    <string name="nav_title_accountInfo">Account</string>
+    <string name="nav_title_account_Info">Account</string>
     <!-- Account info  -->
     <string name="account_info_title_first_name">First Name:</string>
     <string name="account_info_first_name">Your first name</string>
