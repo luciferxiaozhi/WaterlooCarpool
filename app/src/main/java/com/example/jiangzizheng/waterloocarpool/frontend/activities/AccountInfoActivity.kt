@@ -15,7 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class AccountInfoActivity : AppCompatActivity() {
 
-    var toolbar: Toolbar? = null
     var currUser = FirebaseAuth.getInstance().currentUser
     var db = FirebaseFirestore.getInstance()
     val uid = currUser?.uid.toString()
@@ -30,7 +29,6 @@ class AccountInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_account_info)
 
         readDataAndSetText()
-
     }
 
     fun readDataAndSetText()
