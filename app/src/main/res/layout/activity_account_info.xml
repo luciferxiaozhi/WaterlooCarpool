@@ -71,7 +71,7 @@
             android:id="@+id/account_info_LinearLayout3"
     >
         <TextView
-                android:text="@string/account_info_email"
+                android:text="@string/account_info_title_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/account_info_title_email"
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/account_info_email"
-                android:text="@string/account_info_last_name" android:textSize="18sp"/>
+                android:text="@string/account_info_email" android:textSize="18sp"/>
     </LinearLayout>
 
 </RelativeLayout>
