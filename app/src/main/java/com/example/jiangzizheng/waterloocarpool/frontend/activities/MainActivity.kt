@@ -9,7 +9,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.jiangzizheng.waterloocarpool.R
+import com.example.jiangzizheng.waterloocarpool.backend.UserInfo
+import com.example.jiangzizheng.waterloocarpool.backend.UserInfo.sFirstName
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
+import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.PassengerFragment
 import com.google.android.material.navigation.NavigationView
@@ -66,6 +69,14 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layout_container, DriverFragment.newInstance())
             .commit()
+
+        val user = Auth.instance.currentUser
+        if (user != null) {
+            Store.UserCollection.fetch(user.uid)
+                ?.addOnSuccessListener {
+                    UserInfo.sFirstName = it.firstName
+                }
+        }
 
         nav_view.setNavigationItemSelectedListener(mOnDrawerItemSelectedListener)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)

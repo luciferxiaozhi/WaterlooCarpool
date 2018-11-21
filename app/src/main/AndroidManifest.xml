@@ -45,6 +45,10 @@
         </activity>
         <activity android:name=".frontend.activities.TripDetailsActivity">
         </activity>
+        <activity
+                android:name=".frontend.activities.TripsList"
+                android:label="@string/title_trips_list">
+        </activity>
     </application>
 
 </manifest>
