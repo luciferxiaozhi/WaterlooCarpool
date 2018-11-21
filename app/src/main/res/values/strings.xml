@@ -28,6 +28,7 @@
     <string name="title_driver">Driver</string>
     <string name="title_passenger">Passenger</string>
     <string name="title_trips_list">Trips</string>
+    <string name="title_trip_details">Trip Details</string>
 
     <string name="prompt_departure_city">Departure City</string>
 

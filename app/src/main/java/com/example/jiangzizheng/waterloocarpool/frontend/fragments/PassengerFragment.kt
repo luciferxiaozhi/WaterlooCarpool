@@ -7,20 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
 import com.example.jiangzizheng.waterloocarpool.R
 import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
 import com.example.jiangzizheng.waterloocarpool.frontend.activities.TripsList
-import com.example.jiangzizheng.waterloocarpool.frontend.adapters.UserAdapter
 import com.example.jiangzizheng.waterloocarpool.frontend.adapters.UserAdapter.Companion.sUserAdapter
-import com.google.android.gms.tasks.Task
 import com.google.firebase.Timestamp
-import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.fragment_passenger.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.LinkedHashMap
 
 
 /**

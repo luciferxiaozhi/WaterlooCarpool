@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.jiangzizheng.waterloocarpool.R
 import com.example.jiangzizheng.waterloocarpool.backend.UserInfo
-import com.example.jiangzizheng.waterloocarpool.backend.UserInfo.sFirstName
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
