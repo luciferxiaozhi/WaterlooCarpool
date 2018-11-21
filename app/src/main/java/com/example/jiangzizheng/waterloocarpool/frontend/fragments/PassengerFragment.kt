@@ -50,14 +50,19 @@ class PassengerFragment : androidx.fragment.app.Fragment() {
 
             Store.TripCollection.search(trip.departureCity, trip.arrivalCity, trip.dDate, trip.vacancies)
                 ?.addOnSuccessListener {
+                    sUserAdapter.clear()
                     for ((_, value) in it)
                         sUserAdapter.add(value)
-
-                    startActivity(Intent(context, TripsList::class.java))
+                    if (sUserAdapter.itemCount == 0) {
+                        Toast.makeText(activity, "Trip not found!", Toast.LENGTH_LONG).show()
+                    } else {
+                        startActivity(Intent(context, TripsList::class.java))
+                    }
                 }
                 ?.addOnFailureListener {
                     Toast.makeText(activity, "Trip not found!", Toast.LENGTH_LONG).show()
                 }
+
         }
 
     }

@@ -11,9 +11,8 @@ import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
 import com.example.jiangzizheng.waterloocarpool.frontend.activities.TripDetailsActivity
 
 class UserAdapter (
-    private var trips: MutableList<Trip>
+    private val trips: MutableList<Trip>
 ) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
-
     companion object {
         val sUserAdapter = UserAdapter(mutableListOf())
     }
@@ -26,6 +25,10 @@ class UserAdapter (
     fun add(trip: Trip) {
         trips.add(trip)
         notifyDataSetChanged()
+    }
+
+    fun clear() {
+        trips.clear()
     }
 
     override fun getItemCount() = trips.size
