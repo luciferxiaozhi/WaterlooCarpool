@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.PassengerFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -78,6 +80,24 @@ class MainActivity : AppCompatActivity() {
         if (user == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             return
+        }
+        else // set textView on nav_header_main
+        {
+            val userEmail = user.email
+            val db = FirebaseFirestore.getInstance()
+            val docRef = db.collection("users").document(user.uid.toString())
+
+            docRef.get().addOnCompleteListener(this) {task ->
+                if (task.isSuccessful)
+                {
+                    val doc = task.getResult()
+                    val textuserNickname = findViewById<TextView>(R.id.user_nickname)
+                    val textEmail = findViewById<TextView>(R.id.user_email)
+
+                    textuserNickname.setText(doc?.get("firstName").toString())
+                    textEmail.setText(userEmail)
+                }
+            }
         }
     }
 
