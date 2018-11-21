@@ -7,11 +7,42 @@
         android:layout_height="match_parent"
         tools:context=".frontend.activities.AccountInfoActivity" android:id="@+id/account_info">
 
+    <LinearLayout
+            android:id="@+id/account_info_layout_button"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+                android:id="@+id/account_info_layout_button_btnChoose"
+                android:text="Choose"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        <Button
+                android:id="@+id/account_info_layout_button_btnUpload"
+                android:text="Upload"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/account_info_imgView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/account_info_layout_button"
+            android:layout_centerHorizontal="true"/>
+
 
     <LinearLayout
             android:id="@+id/account_info_LinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/account_info_imgView"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
     >
