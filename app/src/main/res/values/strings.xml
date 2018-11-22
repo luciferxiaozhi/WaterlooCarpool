@@ -62,7 +62,7 @@
     <string name="prompt_driver_departure_date">Departure Date (MM/dd hh:mm)</string>
     <string name="prompt_departure_date">Departure Date (MM/dd)</string>
     <string name="prompt_vacancies">Vacancies</string>
-    <string name="prompt_price">Price per Person</string>
+    <string name="prompt_price">Price per Person:</string>
     <string name="action_confirm">Confirm</string>
 
     <!-- passenger fragment -->
@@ -103,4 +103,5 @@
     <string name="prompt_departure_address">Departure Address:</string>
     <string name="prompt_arrival_address">Arrival Address:</string>
     <string name="prompt_contact">Contact:</string>
+    <string name="prompt_departure_time">Departure Time:</string>
 </resources>

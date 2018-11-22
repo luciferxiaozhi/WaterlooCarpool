@@ -1,5 +1,6 @@
 package com.example.jiangzizheng.waterloocarpool.frontend.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,8 @@ import com.example.jiangzizheng.waterloocarpool.backend.UserInfo
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
+import com.example.jiangzizheng.waterloocarpool.frontend.activities.MyTrips
+import com.example.jiangzizheng.waterloocarpool.frontend.activities.MyTripsActivity
 import com.google.firebase.Timestamp
 import kotlinx.android.synthetic.main.fragment_driver.*
 import java.text.SimpleDateFormat
@@ -58,6 +61,16 @@ class DriverFragment : androidx.fragment.app.Fragment() {
 
             Store.TripCollection.add(trip)
                 ?.addOnSuccessListener {
+                    val myTrip = MyTrips(
+                        trip.dDate.toDate().toString(),
+                        trip.departureAddress + ", " + trip.departureCity,
+                        trip.arrivalAddress + ", " + trip.arrivalCity,
+                        trip.price,
+                        trip.phoneNumber
+                    )
+
+                    val intent = Intent(context, MyTripsActivity::class.java)
+                    intent.putExtra("TRIPS", myTrip)
                     Toast.makeText(activity, "data added successfully, please wait for your passenger!", Toast.LENGTH_LONG).show()
                 }
                 ?.addOnFailureListener {e ->
