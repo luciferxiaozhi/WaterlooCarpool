@@ -1,5 +1,6 @@
 package com.example.jiangzizheng.waterloocarpool.frontend.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import android.widget.Toast
 import com.example.jiangzizheng.waterloocarpool.R
 import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
+import com.example.jiangzizheng.waterloocarpool.frontend.activities.TripsList
+import com.example.jiangzizheng.waterloocarpool.frontend.adapters.UserAdapter.Companion.sUserAdapter
 import com.google.firebase.Timestamp
 import kotlinx.android.synthetic.main.fragment_passenger.*
 import java.text.SimpleDateFormat
@@ -47,11 +50,19 @@ class PassengerFragment : androidx.fragment.app.Fragment() {
 
             Store.TripCollection.search(trip.departureCity, trip.arrivalCity, trip.dDate, trip.vacancies)
                 ?.addOnSuccessListener {
-
+                    sUserAdapter.clear()
+                    for ((_, value) in it)
+                        sUserAdapter.add(value)
+                    if (sUserAdapter.itemCount == 0) {
+                        Toast.makeText(activity, "Trip not found!", Toast.LENGTH_LONG).show()
+                    } else {
+                        startActivity(Intent(context, TripsList::class.java))
+                    }
                 }
                 ?.addOnFailureListener {
                     Toast.makeText(activity, "Trip not found!", Toast.LENGTH_LONG).show()
                 }
+
         }
 
     }

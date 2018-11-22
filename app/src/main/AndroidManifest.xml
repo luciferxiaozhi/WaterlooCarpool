@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- To upload image in accountInfo -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
             android:allowBackup="false"
@@ -43,7 +46,13 @@
                 android:name=".frontend.activities.AccountInfoActivity"
                 android:label="@string/title_account_information">
         </activity>
-        <activity android:name=".frontend.activities.TripDetailsActivity">
+        <activity
+                android:name=".frontend.activities.TripDetailsActivity"
+                android:label="@string/title_trip_details">
+        </activity>
+        <activity
+                android:name=".frontend.activities.TripsList"
+                android:label="@string/title_trips_list">
         </activity>
     </application>
 
