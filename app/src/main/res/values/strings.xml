@@ -84,9 +84,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    // Added by Zhilun Chang
+    <!-- Added by Zhilun Chang -->
     <!-- passenger fragment  -->
     <string name="nav_title_account_Info">Account</string>
+    <string name="account_info_title_avatar">Avatar</string>
+    <string name="action_choose">Choose Avatar</string>
+    <string name="action_upload">Upload Avatar</string>
+
     <!-- Account info  -->
     <string name="account_info_title_first_name">First Name:</string>
     <string name="account_info_first_name">Your first name</string>
