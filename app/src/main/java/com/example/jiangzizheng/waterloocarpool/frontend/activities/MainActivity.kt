@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                     .commit()
                 return@OnNavigationItemSelectedListener true
             }
+
             R.id.navigation_passenger -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.layout_container, PassengerFragment.newInstance())
@@ -54,6 +55,10 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.nav_account_Info -> mainHandler.postDelayed({
                 startActivity(Intent(this, AccountInfoActivity::class.java))
+            }, 300L)
+
+            R.id.nav_my_trip -> mainHandler.postDelayed({
+                startActivity(Intent(this, MyTripsActivity::class.java))
             }, 300L)
 
             R.id.nav_exit -> mainHandler.postDelayed({
