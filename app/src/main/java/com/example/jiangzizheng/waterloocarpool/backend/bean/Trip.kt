@@ -17,5 +17,8 @@ data class Trip (
 
     // In Case we have to add avatar in the future
     var driver: String = "",
-    var driverName: String = ""
+    var driverName: String = "",
+
+    var passengerName: String = "",
+    var passengerID: String = ""
 )

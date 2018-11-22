@@ -71,7 +71,7 @@ class DriverFragment : androidx.fragment.app.Fragment() {
 
                     val intent = Intent(context, MyTripsActivity::class.java)
                     intent.putExtra("TRIPS", myTrip)
-                    Toast.makeText(activity, "data added successfully, please wait for your passenger!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(activity, "Data added successfully, please wait for your passenger!", Toast.LENGTH_LONG).show()
                 }
                 ?.addOnFailureListener {e ->
                     Log.w(javaClass.name, "Error writing document", e)
