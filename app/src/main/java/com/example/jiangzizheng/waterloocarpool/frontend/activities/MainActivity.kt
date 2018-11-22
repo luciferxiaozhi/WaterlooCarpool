@@ -1,9 +1,13 @@
 package com.example.jiangzizheng.waterloocarpool.frontend.activities
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -14,9 +18,16 @@ import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.DriverFragment
 import com.example.jiangzizheng.waterloocarpool.frontend.fragments.PassengerFragment
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FileDownloadTask
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageMetadata
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     private val mainHandler = Handler(Looper.getMainLooper())
@@ -41,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnDrawerItemSelectedListener = NavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.nav_accountInfo -> mainHandler.postDelayed({
+            R.id.nav_account_Info -> mainHandler.postDelayed({
                 startActivity(Intent(this, AccountInfoActivity::class.java))
             }, 300L)
 
@@ -88,6 +99,41 @@ class MainActivity : AppCompatActivity() {
         if (user == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             return
+        }
+        else // set textView on nav_header_main
+        {
+            val userEmail = user.email
+            val db = FirebaseFirestore.getInstance()
+            val docRef = db.collection("users").document(user.uid.toString())
+
+            docRef.get().addOnCompleteListener(this) {task ->
+                if (task.isSuccessful)
+                {
+                    val doc = task.getResult()
+                    val textuserNickname = findViewById<TextView>(R.id.user_nickname)
+                    val textEmail = findViewById<TextView>(R.id.user_email)
+
+                    textuserNickname.setText(doc?.get("firstName").toString())
+                    textEmail.setText(userEmail)
+
+                    val iconUID: String? = doc?.get("iconUID").toString()
+                    if (iconUID != null)
+                    {
+                        val iconImageView: ImageView = findViewById<ImageView>(R.id.user_avatar)
+                        val storage = FirebaseStorage.getInstance()
+                        val storageRef: StorageReference = storage.getReference()
+                        val forestRef: StorageReference = storageRef.child("image/$iconUID")
+                        val file:File = File.createTempFile("uwcarpoolIcon", "jpg")
+
+                        forestRef.getFile(file).addOnSuccessListener(object: OnSuccessListener<FileDownloadTask.TaskSnapshot>{
+                            override fun onSuccess(p0: FileDownloadTask.TaskSnapshot?) {
+                                val bitmap: Bitmap = BitmapFactory.decodeFile(file.absolutePath)
+                                iconImageView.setImageBitmap(bitmap)
+                            }
+                        })
+                    }
+                }
+            }
         }
     }
 

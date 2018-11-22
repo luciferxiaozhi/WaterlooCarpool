@@ -74,8 +74,6 @@
     <string name="nav_header_email">unknown@somewhere.com</string>
     <string name="nav_title_exit">Exit</string>
 
-    <string name="nav_title_account_info">Account</string>
-
     <!-- register activity -->
     <string name="prompt_first_name">First Name</string>
     <string name="prompt_last_name">Last Name</string>
@@ -85,4 +83,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    // Added by Zhilun Chang
+    <!-- passenger fragment  -->
+    <string name="nav_title_account_Info">Account</string>
+    <!-- Account info  -->
+    <string name="account_info_title_first_name">First Name:</string>
+    <string name="account_info_first_name">Your first name</string>
+    <string name="account_info_title_last_name">Last Name:</string>
+    <string name="account_info_last_name">Your Last name</string>
+    <string name="account_info_title_email">Email:</string>
+    <string name="account_info_email">Your Email</string>
 </resources>
