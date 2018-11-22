@@ -32,10 +32,10 @@ class AccountInfoActivity : AppCompatActivity() {
     private val userEmail = currUser?.email
 
     // Icon related variables
-    var btnUpload: Button? = null
-    var btnChoose: Button? = null
-    var imageView: ImageView? = null
-    var filePath: Uri? = null
+    private var btnUpload: Button? = null
+    private var btnChoose: Button? = null
+    private var imageView: ImageView? = null
+    private var filePath: Uri? = null
 
     private val pickImgReq: Int = 71
     private val storage: FirebaseStorage = FirebaseStorage.getInstance()
@@ -80,9 +80,10 @@ class AccountInfoActivity : AppCompatActivity() {
     }
 
     private fun chooseImage() {
-        Intent().type = "image/*"
-        Intent().action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(Intent(), "Select Picture"), pickImgReq)
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), pickImgReq)
     }
 
     private fun uploadImage() {
