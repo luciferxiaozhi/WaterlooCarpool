@@ -15,5 +15,7 @@ data class Trip (
     var vacancies: Int = 0,
     var price: Double = 0.0,
 
-    var driver: String = ""
+    // In Case we have to add avatar in the future
+    var driver: String = "",
+    var driverName: String = ""
 )

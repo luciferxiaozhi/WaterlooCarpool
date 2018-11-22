@@ -9,20 +9,22 @@
 
 
     <TextView
-            android:id="@+id/line_trip_fristName"
+            android:id="@+id/line_trip_firstName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textAlignment="center"
             android:background="@drawable/trip_line_background"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"/>
+            android:textColor="@color/colorInputDark"
+            android:textSize="24sp"/>
 
     <TextView
             android:id="@+id/line_trip_dTime"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textAlignment="center"
             android:background="@drawable/trip_line_background"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"/>
+            android:textColor="@color/colorInputDark"
+            android:textSize="24sp"/>
 </LinearLayout>

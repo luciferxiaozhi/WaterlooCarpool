@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jiangzizheng.waterloocarpool.R
+import com.example.jiangzizheng.waterloocarpool.backend.UserInfo
 import com.example.jiangzizheng.waterloocarpool.backend.api.Auth
 import com.example.jiangzizheng.waterloocarpool.backend.api.Store
 import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
@@ -38,7 +39,6 @@ class DriverFragment : androidx.fragment.app.Fragment() {
         super.onViewCreated(view, savedInstanceState)
         confirm_driver.setOnClickListener {
             val user = Auth.instance.currentUser ?: throw Error()
-
             val trip = Trip()
 
             trip.departureCity = driver_departure_city.selectedItem.toString()
@@ -54,6 +54,7 @@ class DriverFragment : androidx.fragment.app.Fragment() {
             trip.price = price.text.toString().toDouble()
 
             trip.driver = user.uid
+            trip.driverName = UserInfo.sFirstName
 
             Store.TripCollection.add(trip)
                 ?.addOnSuccessListener {
