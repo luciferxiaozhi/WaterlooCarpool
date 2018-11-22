@@ -11,37 +11,101 @@
               android:paddingRight="@dimen/activity_horizontal_margin"
               android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-            android:id="@+id/departureAddress"
-            android:textSize="40sp"
-            android:text=""
+
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:text="@string/prompt_departure_address"
+                android:textColor="@color/colorInputDark"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/departureAddress"
+                android:textSize="24sp"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:text="@string/prompt_arrival_address"
+                android:textColor="@color/colorInputDark"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/arrivalAddress"
+                android:textSize="24sp"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
 
 
-    <TextView
-            android:id="@+id/arrivalAddress"
-            android:textSize="40sp"
-            android:text=""
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-            android:id="@+id/contactInformation"
-            android:textSize="40sp"
-            android:text=""
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <TextView
+                android:text="@string/prompt_contact"
+                android:textColor="@color/colorInputDark"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/contactInformation"
+                android:textSize="24sp"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
-    <TextView
-            android:id="@+id/priceInformation"
-            android:textSize="40sp"
-            android:text=""
+    </LinearLayout>
+
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:text="@string/prompt_price"
+                android:textColor="@color/colorInputDark"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/priceInformation"
+                android:textSize="24sp"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
 
     <Button
-            android:id="@+id/confirm_passenger"
+            android:id="@+id/confirm_pick_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

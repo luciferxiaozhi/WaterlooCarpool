@@ -103,7 +103,6 @@ class AccountInfoActivity : AppCompatActivity() {
                     progressDialog.dismiss()
                     Toast.makeText(baseContext, "Failed " + e.message, Toast.LENGTH_SHORT).show()
                 }
-
                 .addOnProgressListener { taskSnapshot ->
                     val progress: Double = (100.0 * taskSnapshot!!.bytesTransferred / taskSnapshot
                         .totalByteCount)

@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jiangzizheng.waterloocarpool.R
 import com.example.jiangzizheng.waterloocarpool.backend.bean.Trip
+import com.example.jiangzizheng.waterloocarpool.frontend.activities.TripDetail
 import com.example.jiangzizheng.waterloocarpool.frontend.activities.TripDetailsActivity
 
 class UserAdapter (
@@ -38,8 +39,18 @@ class UserAdapter (
             inflate(R.layout.line_trip, parent, false) as LinearLayout
         }).apply {
             line.setOnClickListener {
+
+                val tripDetail = TripDetail(
+                    trips[adapterPosition].departureAddress,
+                    trips[adapterPosition].arrivalAddress,
+                    trips[adapterPosition].phoneNumber,
+                    trips[adapterPosition].price)
+
                 val context = parent.context
-                context.startActivity(Intent(context, TripDetailsActivity::class.java))
+                val intent = Intent(context, TripDetailsActivity::class.java)
+                intent.putExtra("DETAIL", tripDetail)
+                context.startActivity(intent)
+                // context.startActivity(Intent(context, TripDetailsActivity::class.java))
             }
 
         }

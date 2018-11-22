@@ -3,7 +3,6 @@ package com.example.jiangzizheng.waterloocarpool.backend.api
 import android.app.Activity
 import com.example.jiangzizheng.waterloocarpool.global.Constants.RC_GOOGLE_SIGN_IN
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
